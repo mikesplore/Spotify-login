@@ -19,6 +19,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -33,7 +37,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun Login(){
-Column (modifier = Modifier
+    var username by remember { mutableStateOf("")}
+    var password by remember { mutableStateOf("")}
+
+    Column (modifier = Modifier
     .background(Color(0xFF121212))
     .fillMaxSize(),
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -61,7 +68,7 @@ Column (modifier = Modifier
         .height(200.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween) {
-        OutlinedTextField(value = "", onValueChange = {}, label = {Text("Username",
+        OutlinedTextField(value = username, onValueChange = {username = it}, label = {Text("Username",
             style = TextStyle(color = Color(0xff7d7d7a))
         )},
             colors = TextFieldDefaults.colors(
@@ -72,22 +79,23 @@ Column (modifier = Modifier
                 unfocusedLabelColor = Color.Black,
                 focusedIndicatorColor = Color.White,
                 unfocusedIndicatorColor = Color.Transparent,
-                cursorColor = Color.Black
+                cursorColor = Color.Gray
             ),
             shape = RoundedCornerShape(30.dp)
             )
-        OutlinedTextField(value = "", onValueChange = {}, label = {Text("Username",
+        OutlinedTextField(value = password, onValueChange = {password = it}, label = {Text("Username",
             style = TextStyle(color = Color(0xff7d7d7a))
         )},
             colors = TextFieldDefaults.colors(
-                focusedTextColor = Color(0xFF4f4f4e),
+                focusedTextColor = Color.White,
                 unfocusedTextColor = Color(0xff4f4f4e),
                 focusedContainerColor = Color.Black,
                 unfocusedContainerColor = Color.Black,
                 unfocusedLabelColor = Color.Black,
                 focusedIndicatorColor = Color.White,
                 unfocusedIndicatorColor = Color.Transparent,
-                cursorColor = Color.Black
+                cursorColor = Color.Gray,
+
             ),
             shape = RoundedCornerShape(30.dp)
         )
