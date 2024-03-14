@@ -189,7 +189,7 @@ fun Signup(){
         Row(modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center) {
             Text(
-                text = "Don't have an account? ",
+                text = "Already have an account? ",
                 style = TextStyle(
                     fontWeight = FontWeight.Medium,
                     fontSize = 15.sp,
@@ -198,7 +198,7 @@ fun Signup(){
                 )
             )
             Text(
-                text = "Sign Up",
+                text = "Log In",
                 modifier = Modifier.clickable(onClick = { /*TODO*/ }),
                 style = TextStyle(
                     fontWeight = FontWeight.Medium,
